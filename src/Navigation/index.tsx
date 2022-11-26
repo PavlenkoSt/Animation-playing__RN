@@ -4,15 +4,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Menu from '@app/screens/Menu'
 import CardsShuffling from '@app/screens/CardsShuffling'
+import SliderWithSteps from '@app/screens/SliderWithSteps'
 
 const Stack = createNativeStackNavigator()
+
+export const routes = [
+  { name: 'CardsShuffling', component: CardsShuffling },
+  { name: 'SliderWithSteps', component: SliderWithSteps },
+]
 
 const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="CardsShuffling" component={CardsShuffling} />
+        {routes.map((route) => (
+          <Stack.Screen name={route.name} component={route.component} key={route.name} />
+        ))}
       </Stack.Navigator>
     </NavigationContainer>
   )
