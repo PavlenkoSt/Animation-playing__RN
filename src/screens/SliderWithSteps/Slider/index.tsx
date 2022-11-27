@@ -2,9 +2,9 @@ import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } fro
 import { runOnJS, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated'
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
 
-import SliderBody from './SliderBody'
+import { SLIDER_POINT_SIZE } from '@app/consts'
 
-export const POINT_SIZE = 24
+import SliderBody from './SliderBody'
 
 type SliderPropsType = {
   value: number
@@ -47,8 +47,8 @@ const Slider: FC<SliderPropsType> = ({ value, setValue, disabled, isRtl }) => {
         return
       }
 
-      if (x > sliderWidth - POINT_SIZE) {
-        translateX.value = sliderWidth - POINT_SIZE
+      if (x > sliderWidth - SLIDER_POINT_SIZE) {
+        translateX.value = sliderWidth - SLIDER_POINT_SIZE
         runOnJS(setValue)(5)
         return
       }
@@ -106,7 +106,7 @@ export default Slider
 function generatePoints(width: number, numberOfPoints: number) {
   const res: number[] = []
 
-  const part = (width - POINT_SIZE) / numberOfPoints || 0
+  const part = (width - SLIDER_POINT_SIZE) / numberOfPoints || 0
 
   res.push(0)
 

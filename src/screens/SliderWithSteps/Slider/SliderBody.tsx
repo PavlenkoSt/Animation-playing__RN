@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import Animated, { SharedValue } from 'react-native-reanimated'
 import { ReText } from 'react-native-redash'
 
-import { POINT_SIZE } from './index'
+import { SLIDER_POINT_SIZE } from '@app/consts'
 
 type SliderBodyPropsType = {
   disabled: boolean
@@ -38,7 +38,7 @@ const SliderBody: FC<SliderBodyPropsType> = ({
             styles.filledLine,
             {
               width: sliderWidth + sliderWidth / 2,
-              left: -sliderWidth - sliderWidth / 2.1 - POINT_SIZE / 4,
+              left: -sliderWidth - sliderWidth / 2.1 - SLIDER_POINT_SIZE / 4,
             },
             animatedStyles,
           ]}
@@ -69,11 +69,11 @@ export default SliderBody
 
 const styles = StyleSheet.create({
   point: {
-    width: POINT_SIZE,
-    height: POINT_SIZE,
+    width: SLIDER_POINT_SIZE,
+    height: SLIDER_POINT_SIZE,
     borderRadius: 50,
     position: 'relative',
-    top: -POINT_SIZE + POINT_SIZE / 4,
+    top: -SLIDER_POINT_SIZE + SLIDER_POINT_SIZE / 4,
     backgroundColor: '#fff',
     borderWidth: 4,
     borderColor: '#006dbf',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   label: {
     position: 'absolute',
-    transform: [{ translateX: -POINT_SIZE / 6 }],
+    transform: [{ translateX: -SLIDER_POINT_SIZE / 6 }],
     borderWidth: 2,
     borderColor: '#006dbf',
     borderRadius: 40,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     fontFamily: '$fontBold',
   },
   labelRtl: {
-    transform: [{ rotate: '180deg' }, { translateX: POINT_SIZE / 6 }],
+    transform: [{ rotate: '180deg' }, { translateX: SLIDER_POINT_SIZE / 6 }],
   },
   labelDisable: {
     borderColor: '#ccc',
