@@ -3,14 +3,17 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Menu from '@app/screens/Menu'
+
 import CardsShuffling from '@app/screens/CardsShuffling'
 import SliderWithSteps from '@app/screens/SliderWithSteps'
+import ChanelScroll from '@app/screens/ChanelScroll'
 
 const Stack = createNativeStackNavigator()
 
 export const routes = [
   { name: 'CardsShuffling', component: CardsShuffling },
   { name: 'SliderWithSteps', component: SliderWithSteps },
+  { name: 'ChanelScroll', component: ChanelScroll },
 ]
 
 const Navigation = () => {
